@@ -2,11 +2,14 @@ package io.khamzin.likeinsta.security;
 
 import io.khamzin.likeinsta.entity.UserEntity;
 import io.khamzin.likeinsta.service.CustomUserDetailsService;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -17,12 +20,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collections;
 
+
 @Slf4j
-@RequiredArgsConstructor
+@NoArgsConstructor
 public class JWTAuthFilter extends OncePerRequestFilter {
 
-    private final JWTTokenProvider jwtTokenProvider;
-    private final CustomUserDetailsService customUserDetailsService;
+    private JWTTokenProvider jwtTokenProvider;
+    private CustomUserDetailsService customUserDetailsService;
+
+    @Autowired
+    public JWTAuthFilter(JWTTokenProvider jwtTokenProvider, CustomUserDetailsService customUserDetailsService) {
+        this.jwtTokenProvider = jwtTokenProvider;
+        this.customUserDetailsService = customUserDetailsService;
+    }
+
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
