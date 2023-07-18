@@ -1,4 +1,4 @@
-package io.khamzin.likeinsta.validations;
+package io.khamzin.likeinsta.validation;
 
 import io.khamzin.likeinsta.annotation.PasswordMatches;
 import io.khamzin.likeinsta.payload.request.SignupRequest;
