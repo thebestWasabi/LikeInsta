@@ -1,4 +1,4 @@
-package io.khamzin.likeinsta.validations;
+package io.khamzin.likeinsta.validation;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

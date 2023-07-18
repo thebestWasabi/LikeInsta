@@ -1,6 +1,6 @@
 package io.khamzin.likeinsta.annotation;
 
-import io.khamzin.likeinsta.validations.EmailValidator;
+import io.khamzin.likeinsta.validation.EmailValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
