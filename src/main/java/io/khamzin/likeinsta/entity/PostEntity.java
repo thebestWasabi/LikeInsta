@@ -19,6 +19,7 @@ public class PostEntity {
     private Long id;
     private String title;
     private String caption;
+    private String location;
     private int likes;
 
     @Column

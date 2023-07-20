@@ -18,7 +18,7 @@ import static java.lang.annotation.ElementType.TYPE;
 @Documented
 public @interface PasswordMatches {
 
-    String message() default "Passwords don't match";
+    String message() default "Пароли не совпадают";
 
     Class<?>[] groups() default {};
 
