@@ -24,6 +24,11 @@ public class UserService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
+    public UserEntity getUserById(Long userId) {
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+    }
+
     @Transactional
     public UserEntity createUser(SignupRequest userIn) {
         UserEntity user = new UserEntity();
@@ -61,5 +66,4 @@ public class UserService {
         return userRepository.findUserByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Username not found: " + username));
     }
-
 }
