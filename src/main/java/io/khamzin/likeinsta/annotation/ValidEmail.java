@@ -17,7 +17,7 @@ import static java.lang.annotation.ElementType.*;
 @Documented
 public @interface ValidEmail {
 
-    String message() default "Invalid email";
+    String message() default "Неправильный формат электронной почты";
 
     Class<?>[] groups() default {};
 

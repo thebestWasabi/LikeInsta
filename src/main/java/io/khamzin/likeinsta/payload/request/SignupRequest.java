@@ -4,32 +4,31 @@ import io.khamzin.likeinsta.annotation.PasswordMatches;
 import io.khamzin.likeinsta.annotation.ValidEmail;
 import lombok.Data;
 
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 @Data
 @PasswordMatches
 public class SignupRequest {
 
-    @Email(message = "Incorrect email format")
-    @NotBlank(message = "User email is required")
+    @NotBlank(message = "Введите электронную почту")
     @ValidEmail
     private String email;
 
-    @NotEmpty(message = "Enter you name")
+    @NotBlank(message = "Введите имя")
     private String firstname;
 
-    @NotEmpty(message = "Enter you lastname")
+    @NotBlank(message = "Введите фамилию")
     private String lastname;
 
-    @NotEmpty(message = "Enter you username")
+    @NotBlank(message = "Введите username")
     private String username;
 
-    @NotEmpty(message = "Enter you password")
-    @Size(min = 6, max = 23, message = "Password must be between 6 and 23 symbols")
+    @NotBlank(message = "Пароль не может быть пустым")
+    @Size(min = 6, max = 23, message = "Длинна пароля должна быть от 6 до 32 символов")
     private String password;
 
+    @NotBlank(message = "Подтверждение пароля не может быть пустым")
     private String confirmPassword;
+
 }
