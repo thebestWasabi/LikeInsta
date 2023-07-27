@@ -11,14 +11,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.security.Principal;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
-@Transactional(readOnly = true)
 public class UserService {
 
     private final UserRepository userRepository;
@@ -29,7 +27,7 @@ public class UserService {
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
-    @Transactional
+
     public UserEntity createUser(SignupRequest userIn) {
         UserEntity user = new UserEntity();
         user.setEmail(userIn.getEmail());
@@ -48,7 +46,6 @@ public class UserService {
         }
     }
 
-    @Transactional
     public UserEntity updateUser(UserDTO userDTO, Principal principal) {
         var user = getUserByPrincipal(principal);
         user.setName(userDTO.getFirstname());
