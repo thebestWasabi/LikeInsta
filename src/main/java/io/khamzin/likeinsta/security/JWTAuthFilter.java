@@ -25,14 +25,10 @@ import java.util.Collections;
 @NoArgsConstructor
 public class JWTAuthFilter extends OncePerRequestFilter {
 
-    private JWTTokenProvider jwtTokenProvider;
-    private CustomUserDetailsService customUserDetailsService;
-
     @Autowired
-    public JWTAuthFilter(JWTTokenProvider jwtTokenProvider, CustomUserDetailsService customUserDetailsService) {
-        this.jwtTokenProvider = jwtTokenProvider;
-        this.customUserDetailsService = customUserDetailsService;
-    }
+    private JWTTokenProvider jwtTokenProvider;
+    @Autowired
+    private CustomUserDetailsService customUserDetailsService;
 
 
     @Override
